@@ -7,6 +7,17 @@ function iniciarSorpresa() {
     { img: "hw5.jpg", texto: "Eres mi razón de sonreír 😍" },
     { img: "hw6.jpg", texto: "Eres mi paraíso en la tierra 🌷" }
   ];
+  document.getElementById("startBtn").addEventListener("click", () => {
+  // Oculta portada
+  document.getElementById("portada").style.display = "none";
+  document.getElementById("galeria").style.display = "block";
+
+  // Reproducir música
+  const music = document.getElementById("bg-music");
+  music.play().catch(err => {
+    console.log("El navegador bloqueó el autoplay hasta que hagas clic:", err);
+  });
+});
 
   let index = 0;
   const container = document.body;
