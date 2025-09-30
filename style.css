@@ -1,77 +1,148 @@
 body {
   margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(135deg, #fbe9e7, #ffebee);
-  color: #333;
+  font-family: 'Cursive', sans-serif;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  color: #fff;
   text-align: center;
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+.pantalla {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.foto-principal {
-  margin-bottom: 30px;
-  position: relative;
+.oculto {
+  display: none;
 }
 
-.foto-principal img {
-  width: 100%;
+.foto-portada {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  animation: fadeIn 2s ease-in-out;
 }
 
-.foto-principal .frase {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.7);
-  padding: 10px 20px;
-  border-radius: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #c2185b;
+.frase-portada {
+  font-size: 1.8em;
+  margin: 20px;
+  animation: glow 2s infinite alternate;
 }
 
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+#btnIniciar {
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 77, 109, 0.7);
+  transition: 0.3s;
+}
+#btnIniciar:hover {
+  transform: scale(1.1);
+  background: #ff1f4d;
+}
+
+/* Galería */
+.flores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
 }
-
-.galeria img {
-  width: 100%;
+.flores img {
+  width: 150px;
+  height: 150px;
   border-radius: 15px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+.flores img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 
-.galeria img:hover {
-  transform: scale(1.05);
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.frase-box {
-  display: none;
-  margin-top: 20px;
-  font-size: 1.4rem;
-  font-style: italic;
-  color: #880e4f;
-}
-
-.gran-final {
-  display: none;
-  margin-top: 40px;
+.modal-content {
+  background: #fff;
+  color: #000;
   padding: 20px;
-  background: #f8bbd0;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  animation: aparecer 2s ease-in-out forwards;
+  max-width: 90%;
+  animation: zoomIn 0.5s ease;
+}
+.modal-content img {
+  max-width: 300px;
+  border-radius: 15px;
+}
+.modal-content p {
+  margin-top: 15px;
+  font-size: 1.2em;
+  font-family: "Dancing Script", cursive;
+  color: #ff1f4d;
+}
+#cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
+/* Final */
+.frase-final {
+  font-size: 2em;
+  color: #fff;
+  text-shadow: 0 0 20px #ff4d6d;
+  animation: fadeIn 2s ease-in-out, glow 1.5s infinite alternate;
+}
+
+.corazones {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.corazones::before {
+  content: "❤️ 💕 💖 💗 💓 💞";
+  position: absolute;
+  font-size: 2em;
+  animation: flotar 6s linear infinite;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes zoomIn {
+  from {transform: scale(0.5);}
+  to {transform: scale(1);}
+}
+@keyframes glow {
+  from {text-shadow: 0 0 5px #fff;}
+  to {text-shadow: 0 0 20px #ff4d6d;}
+}
+@keyframes flotar {
+  0% {top: 100%;}
+  100% {top: -10%;}
 }
