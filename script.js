@@ -1,29 +1,21 @@
-document.getElementById('btnComenzar').addEventListener('click', () => {
-  document.getElementById('portada').classList.add('oculto');
-  document.getElementById('ramo').classList.remove('oculto');
-});
+const frases = {
+  1: "Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa y tu luz 💕✨",
+  2: "Tú eres mi refugio, mi paz y mi felicidad 🌸💫",
+  3: "Desde que llegaste, todo tiene sentido 🌹✨",
+  4: "Eres mi razón favorita para sonreír cada día 💖😊",
+  5: "No importa dónde, lo importante es contigo 🌍❤️",
+  6: "Mi lugar favorito siempre será a tu lado 🌟💞"
+};
 
-const flores = document.querySelectorAll('.flor');
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalFrase = document.getElementById('modal-frase');
-const cerrar = document.getElementById('cerrar');
-const final = document.getElementById('final');
+function mostrarFrase(num) {
+  const fraseBox = document.getElementById("frase-box");
+  fraseBox.innerHTML = `<p>${frases[num]}</p>`;
+  fraseBox.style.display = "block";
 
-flores.forEach(flor => {
-  flor.addEventListener('click', () => {
-    const frase = flor.getAttribute('data-frase');
-    if (frase === "GRAN_FINAL") {
-      document.getElementById('ramo').classList.add('oculto');
-      final.classList.remove('oculto');
-    } else {
-      modalImg.src = flor.src;
-      modalFrase.textContent = frase;
-      modal.classList.remove('oculto');
-    }
-  });
-});
-
-cerrar.addEventListener('click', () => {
-  modal.classList.add('oculto');
-});
+  // Si es la última, mostramos el gran final
+  if (num === 6) {
+    setTimeout(() => {
+      document.getElementById("gran-final").style.display = "block";
+    }, 1500);
+  }
+}
