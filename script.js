@@ -1,37 +1,37 @@
-const btnIniciar = document.getElementById("btnIniciar");
-const portada = document.getElementById("portada");
-const galeria = document.getElementById("galeria");
-const modal = document.getElementById("modal");
-const modalImg = document.getElementById("modal-img");
-const modalFrase = document.getElementById("modal-frase");
-const cerrar = document.getElementById("cerrar");
-const final = document.getElementById("final");
-const musica = document.getElementById("musica");
+function iniciarSorpresa() {
+  const frases = [
+    { img: "hw1.jpg", texto: "💕✨ Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa 💕✨" },
+    { img: "hw2.jpg", texto: "Eres mi alegría diaria 💕" },
+    { img: "hw3.jpg", texto: "Cada momento contigo es único 🌹" },
+    { img: "hw4.jpg", texto: "No hay nadie como tú 💫" },
+    { img: "hw5.jpg", texto: "Eres mi razón de sonreír 😍" },
+    { img: "hw6.jpg", texto: "Eres mi paraíso en la tierra 🌷" }
+  ];
 
-let contador = 0;
-const flores = document.querySelectorAll(".flores img");
+  let index = 0;
+  const container = document.body;
+  container.innerHTML = ""; // limpia la pantalla
 
-btnIniciar.addEventListener("click", () => {
-  portada.classList.add("oculto");
-  galeria.classList.remove("oculto");
-  musica.play();
-});
-
-flores.forEach((flor, index) => {
-  flor.addEventListener("click", () => {
-    modalImg.src = flor.src;
-    modalFrase.textContent = flor.getAttribute("data-frase");
-    modal.classList.remove("oculto");
-    contador++;
-    if (contador === flores.length) {
-      setTimeout(() => {
-        galeria.classList.add("oculto");
-        final.classList.remove("oculto");
-      }, 2000);
+  function mostrarFrase() {
+    if (index < frases.length) {
+      container.innerHTML = `
+        <div class="pantalla">
+          <img src="${frases[index].img}" class="imagen-romantica">
+          <h2>${frases[index].texto}</h2>
+        </div>
+      `;
+      index++;
+      setTimeout(mostrarFrase, 3000); // pasa cada 3 segundos
+    } else {
+      container.innerHTML = `
+        <div class="final">
+          <h1>✨🥹 No quiero existir en un mundo donde no estés ✨🥹</h1>
+          <p>Te amo demasiado 😍❤️</p>
+          <img src="foto.jpg" class="imagen-romantica">
+        </div>
+      `;
     }
-  });
-});
+  }
 
-cerrar.addEventListener("click", () => {
-  modal.classList.add("oculto");
-});
+  mostrarFrase();
+}
