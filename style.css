@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Cursive', sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: 'Dancing Script', cursive;
+  background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
   color: #fff;
   text-align: center;
   overflow-x: hidden;
 }
 
+/* Pantallas */
 .pantalla {
   min-height: 100vh;
   display: flex;
@@ -15,42 +16,46 @@ body {
   align-items: center;
 }
 
-.oculto {
-  display: none;
-}
+.oculto { display: none; }
 
+/* Portada */
+.portada {
+  animation: fadeIn 2s ease-in-out;
+  background: linear-gradient(135deg, #ff4d6d, #ffb199);
+}
 .foto-portada {
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-  animation: fadeIn 2s ease-in-out;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.9);
 }
-
 .frase-portada {
-  font-size: 1.8em;
+  font-size: 2em;
   margin: 20px;
   animation: glow 2s infinite alternate;
 }
-
 #btnIniciar {
-  padding: 12px 25px;
-  font-size: 1.2em;
+  padding: 12px 30px;
+  font-size: 1.3em;
   border: none;
   border-radius: 30px;
-  background: #ff4d6d;
+  background: #ff004d;
   color: white;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(255, 77, 109, 0.7);
-  transition: 0.3s;
+  box-shadow: 0 0 25px rgba(255, 0, 77, 0.7);
+  transition: transform 0.3s;
 }
 #btnIniciar:hover {
-  transform: scale(1.1);
-  background: #ff1f4d;
+  transform: scale(1.15);
 }
 
 /* Galería */
+.subtitulo {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
+}
 .flores {
   display: flex;
   flex-wrap: wrap;
@@ -62,12 +67,12 @@ body {
   height: 150px;
   border-radius: 15px;
   cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  transition: 0.4s;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 .flores img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
+  transform: scale(1.2) rotate(3deg);
+  filter: brightness(1.3);
 }
 
 /* Modal */
@@ -94,9 +99,10 @@ body {
 }
 .modal-content p {
   margin-top: 15px;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-family: "Dancing Script", cursive;
-  color: #ff1f4d;
+  color: #ff004d;
+  animation: fadeIn 2s ease-in-out;
 }
 #cerrar {
   position: absolute;
@@ -109,40 +115,23 @@ body {
 
 /* Final */
 .frase-final {
-  font-size: 2em;
-  color: #fff;
-  text-shadow: 0 0 20px #ff4d6d;
-  animation: fadeIn 2s ease-in-out, glow 1.5s infinite alternate;
+  font-size: 2.2em;
+  text-shadow: 0 0 25px #ff4d6d;
+  animation: fadeIn 3s ease-in-out, glow 1.5s infinite alternate;
+  padding: 20px;
 }
-
-.corazones {
+#corazones span {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  overflow: hidden;
-  pointer-events: none;
-}
-.corazones::before {
-  content: "❤️ 💕 💖 💗 💓 💞";
-  position: absolute;
+  color: red;
   font-size: 2em;
   animation: flotar 6s linear infinite;
 }
 
 /* Animaciones */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-@keyframes zoomIn {
-  from {transform: scale(0.5);}
-  to {transform: scale(1);}
-}
-@keyframes glow {
-  from {text-shadow: 0 0 5px #fff;}
-  to {text-shadow: 0 0 20px #ff4d6d;}
-}
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes zoomIn { from {transform: scale(0.5);} to {transform: scale(1);} }
+@keyframes glow { from {text-shadow: 0 0 5px #fff;} to {text-shadow: 0 0 30px #ff4d6d;} }
 @keyframes flotar {
-  0% {top: 100%;}
-  100% {top: -10%;}
+  0% {transform: translateY(100vh) scale(0.5);}
+  100% {transform: translateY(-10vh) scale(1.5);}
 }
