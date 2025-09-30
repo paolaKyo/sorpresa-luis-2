@@ -1,69 +1,68 @@
-function iniciarSorpresa() {
-  const frases = [
-    { img: "hw1.jpg", texto: "💕✨ Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa 💕✨" },
-    { img: "hw2.jpg", texto: "Eres mi alegría diaria 💕" },
-    { img: "hw3.jpg", texto: "Cada momento contigo es único 🌹" },
-    { img: "hw4.jpg", texto: "No hay nadie como tú 💫" },
-    { img: "hw5.jpg", texto: "Eres mi razón de sonreír 😍" },
-    { img: "hw6.jpg", texto: "Eres mi paraíso en la tierra 🌷" }
-  ];
-  document.getElementById("startBtn").addEventListener("click", () => {
-  // Oculta portada
-  document.getElementById("portada").style.display = "none";
-  document.getElementById("galeria").style.display = "block";
-
-  // Reproducir música
-  const music = document.getElementById("bg-music");
-  music.play().catch(err => {
-    console.log("El navegador bloqueó el autoplay hasta que hagas clic:", err);
-  });
-});
 document.getElementById("startBtn").addEventListener("click", () => {
-  // Oculta portada
+  // 1️⃣ Ocultar portada y mostrar galería
   document.getElementById("portada").style.display = "none";
   document.getElementById("galeria").style.display = "block";
 
-  // Reproducir música con fade-in
+  // 2️⃣ Música con fade-in
   const music = document.getElementById("bg-music");
-  music.volume = 0; // empieza en silencio
+  music.volume = 0;
   music.play().then(() => {
     let vol = 0;
     const fade = setInterval(() => {
       if (vol < 1) {
-        vol += 0.02; // sube poco a poco
+        vol += 0.02;
         music.volume = vol;
       } else {
         clearInterval(fade);
       }
-    }, 200); // cada 200ms aumenta volumen
-  }).catch(err => {
-    console.log("El navegador necesita interacción del usuario:", err);
-  });
-});
-  let index = 0;
-  const container = document.body;
-  container.innerHTML = ""; // limpia la pantalla
+    }, 200);
+  }).catch(err => console.log(err));
 
-  function mostrarFrase() {
-    if (index < frases.length) {
-      container.innerHTML = `
-        <div class="pantalla">
-          <img src="${frases[index].img}" class="imagen-romantica">
-          <h2>${frases[index].texto}</h2>
-        </div>
-      `;
-      index++;
-      setTimeout(mostrarFrase, 3000); // pasa cada 3 segundos
-    } else {
-      container.innerHTML = `
-        <div class="final">
-          <h1>✨🥹 No quiero existir en un mundo donde no estés ✨🥹</h1>
-          <p>Te amo demasiado 😍❤️</p>
-          <img src="foto.jpg" class="imagen-romantica">
-        </div>
-      `;
+  // 3️⃣ Mostrar frases letra por letra con destellos
+  const frases = document.querySelectorAll('.frase');
+  let i = 0;
+
+  function escribirFrase() {
+    if (i >= frases.length) return;
+    const fraseDiv = frases[i];
+    const texto = fraseDiv.getAttribute('data-text');
+    fraseDiv.innerHTML = '';
+    fraseDiv.style.opacity = 1;
+    fraseDiv.style.transform = 'translateY(0)';
+
+    let j = 0;
+    function escribirLetra() {
+      if (j < texto.length) {
+        const span = document.createElement('span');
+        span.classList.add('letra');
+        span.style.animationDelay = `${j * 0.05}s`;
+        span.textContent = texto[j];
+        fraseDiv.appendChild(span);
+        j++;
+        setTimeout(escribirLetra, 50);
+      } else {
+        i++;
+        setTimeout(escribirFrase, 1000);
+      }
     }
+    escribirLetra();
   }
 
-  mostrarFrase();
-}
+  escribirFrase();
+
+  // 4️⃣ Generar corazones brillantes
+  const heartsContainer = document.getElementById('hearts');
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 1 + 1.5) + 'em';
+    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+    heart.textContent = "💖";
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }, 500); // cada 0.5s aparece un corazón
+});
