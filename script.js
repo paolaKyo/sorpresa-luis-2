@@ -18,7 +18,28 @@ function iniciarSorpresa() {
     console.log("El navegador bloqueó el autoplay hasta que hagas clic:", err);
   });
 });
+document.getElementById("startBtn").addEventListener("click", () => {
+  // Oculta portada
+  document.getElementById("portada").style.display = "none";
+  document.getElementById("galeria").style.display = "block";
 
+  // Reproducir música con fade-in
+  const music = document.getElementById("bg-music");
+  music.volume = 0; // empieza en silencio
+  music.play().then(() => {
+    let vol = 0;
+    const fade = setInterval(() => {
+      if (vol < 1) {
+        vol += 0.02; // sube poco a poco
+        music.volume = vol;
+      } else {
+        clearInterval(fade);
+      }
+    }, 200); // cada 200ms aumenta volumen
+  }).catch(err => {
+    console.log("El navegador necesita interacción del usuario:", err);
+  });
+});
   let index = 0;
   const container = document.body;
   container.innerHTML = ""; // limpia la pantalla
