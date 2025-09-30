@@ -3,49 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorpresa ✨💕</title>
-  <link rel="stylesheet" href="estilos.css">
+  <title>Sorpresa Romántica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Foto de los dos con frase inicial -->
-    <div class="foto-principal">
-      <img src="foto.jpg" alt="Nosotros dos">
-      <p class="frase">Feliz 30 de septiembre 🌻✨🫶</p>
-    </div>
+  <!-- Portada -->
+  <div id="portada" class="pantalla">
+    <img src="foto.jpg" alt="Nosotros" class="foto-portada">
+    <h1 class="frase-portada">🌻✨🫶 Feliz 30 de septiembre</h1>
+    <button id="btnIniciar">Ver Sorpresa 💖</button>
+  </div>
 
-    <!-- Galería con 6 imágenes -->
-    <div class="galeria">
-      <div class="item" onclick="mostrarFrase(1)">
-        <img src="f1.jpg" alt="Imagen 1">
-      </div>
-      <div class="item" onclick="mostrarFrase(2)">
-        <img src="f2.jpg" alt="Imagen 2">
-      </div>
-      <div class="item" onclick="mostrarFrase(3)">
-        <img src="f3.jpg" alt="Imagen 3">
-      </div>
-      <div class="item" onclick="mostrarFrase(4)">
-        <img src="f4.jpg" alt="Imagen 4">
-      </div>
-      <div class="item" onclick="mostrarFrase(5)">
-        <img src="f5.jpg" alt="Imagen 5">
-      </div>
-      <div class="item" onclick="mostrarFrase(6)">
-        <img src="f6.jpg" alt="Imagen 6">
-      </div>
-    </div>
-
-    <!-- Frases que aparecen al hacer click -->
-    <div id="frase-box" class="frase-box"></div>
-
-    <!-- Gran final -->
-    <div id="gran-final" class="gran-final">
-      <h2>💖 Gracias por ser mi todo 💖</h2>
-      <p>Eres lo mejor que me pasó en la vida ✨</p>
+  <!-- Galería de flores -->
+  <div id="galeria" class="pantalla oculto">
+    <div class="flores">
+      <img src="hw1.jpg" data-frase="💕✨ Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa y tu luz 💕✨">
+      <img src="hw2.jpg" data-frase="Eres mi alegría diaria 💕">
+      <img src="hw3.jpg" data-frase="Cada momento contigo es único 🌹">
+      <img src="hw4.jpg" data-frase="No hay nadie como tú 💫">
+      <img src="hw5.jpg" data-frase="Eres mi razón de sonreír 😍">
+      <img src="hw6.jpg" data-frase="Eres mi paraíso en la tierra 🌷">
     </div>
   </div>
 
-  <script src="scripts.js"></script>
+  <!-- Modal para mostrar imagen + frase -->
+  <div id="modal" class="modal oculto">
+    <div class="modal-content">
+      <span id="cerrar">&times;</span>
+      <img id="modal-img" src="">
+      <p id="modal-frase"></p>
+    </div>
+  </div>
+
+  <!-- Gran final -->
+  <div id="final" class="pantalla oculto">
+    <h1 class="frase-final">✨🥹 No quiero existir en un mundo donde no estés ✨🥹<br>Te amo demasiado 😍❤️</h1>
+    <div class="corazones"></div>
+  </div>
+
+  <!-- Música -->
+  <audio id="musica" autoplay loop>
+    <source src="perfect.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
