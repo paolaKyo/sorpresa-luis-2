@@ -62,3 +62,25 @@ h2 {
   from { text-shadow: 0 0 5px #fff, 0 0 10px #ff4b5c; }
   to { text-shadow: 0 0 20px #fff, 0 0 30px #ff1e40; }
 }
+/* Fuente elegante y grande */
+.frase {
+  font-family: 'Dancing Script', cursive; /* fuente romántica */
+  font-size: 2em; /* más grande */
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1.5s forwards;
+}
+
+/* Animación de aparición */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
