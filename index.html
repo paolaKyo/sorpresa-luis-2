@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carta Romántica Mágica</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regalo Digital Romántico</title>
 
-  <!-- Fuente elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<!-- Fuente cursiva elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Portada -->
-  <div id="portada">
-    <h1>💖 Una sorpresa para ti 💖</h1>
-    <button id="startBtn">Ver sorpresa</button>
+
+<!-- 1️⃣ Portada romántica -->
+<div id="portada">
+  <div class="portada-contenido">
+    <img src="tu-foto.jpg" alt="Nosotros" class="foto-portada">
+    <h1 class="frase-portada">🌻✨🫶 “Feliz 30 de septiembre”</h1>
   </div>
+  <button id="startBtn">Ver sorpresa</button>
+</div>
 
-  <!-- Galería / frases -->
-  <div id="galeria" style="display:none;">
-    <audio id="bg-music" src="musica-romantica.mp3"></audio>
+<!-- 2️⃣ Galería con flores -->
+<div id="galeria" style="display:none;">
+  <audio id="bg-music" src="Perfect.mp3"></audio>
 
-    <div class="frase" data-text="Eres la razón de mi sonrisa 😍"></div>
-    <div class="frase" data-text="Cada momento contigo es mágico ✨"></div>
-    <div class="frase" data-text="Siempre juntos, mi amor 💖"></div>
-    <div class="frase" data-text="Te amo más de lo que las palabras pueden decir ❤️"></div>
+  <div class="flores">
+    <img src="flor1.png" class="flor" data-frase="💕✨ Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa y tu luz 💕✨">
+    <img src="flor2.png" class="flor" data-frase="Eres mi alegría diaria 💕">
+    <img src="flor3.png" class="flor" data-frase="Cada momento contigo es único 🌹">
+    <img src="flor4.png" class="flor" data-frase="No hay nadie como tú 💫">
+    <img src="flor5.png" class="flor" data-frase="Eres mi razón de sonreír 😍">
+    <img src="flor6.png" class="flor" data-frase="Eres mi paraíso en la tierra 🌷">
   </div>
+</div>
 
-  <!-- Contenedor para corazones brillantes -->
-  <div id="hearts"></div>
+<!-- 3️⃣ Modal de imagen + frase -->
+<div id="modal" style="display:none;">
+  <div class="modal-fondo"></div>
+  <div class="modal-contenido">
+    <img id="modal-img" src="" alt="flor">
+    <p id="modal-frase" class="frase-modal"></p>
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- 4️⃣ Gran final -->
+<div id="final" style="display:none;">
+  <h1>✨🥹 “No quiero existir en un mundo donde no estés ✨🥹<br>Te amo demasiado 😍❤️”</h1>
+</div>
+
+<!-- Contenedor corazones flotantes -->
+<div id="hearts"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
