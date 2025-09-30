@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorpresa Romántica 💖</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Música romántica -->
+  <audio id="bg-music" autoplay loop>
+    <source src="Perfect.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <!-- Portada -->
+  <div id="portada" class="pantalla">
+    <div class="contenido-portada">
+      <img src="foto_pareja.jpg" alt="Nosotros" class="foto-pareja">
+      <h1>Feliz 30 de septiembre 🌻✨🫶</h1>
+      <button id="btnComenzar">Abrir Sorpresa</button>
+    </div>
+  </div>
+
+  <!-- Ramo de flores -->
+  <div id="ramo" class="pantalla oculto">
+    <h2>Para: El amor de mi vida (Luis) 💖</h2>
+    <div class="flores">
+      <img src="hw1.jpg" alt="Flor 1" class="flor" data-frase="Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa y tu luz 💕✨">
+      <img src="hw2.jpg" alt="Flor 2" class="flor" data-frase="Eres mi alegría diaria 💕">
+      <img src="hw3.jpg" alt="Flor 3" class="flor" data-frase="Cada momento contigo es único 🌹">
+      <img src="hw4.jpg" alt="Flor 4" class="flor" data-frase="No hay nadie como tú 💫">
+      <img src="hw5.jpg" alt="Flor 5" class="flor" data-frase="Eres mi razón de sonreír 😍">
+      <img src="hw6.jpg" alt="Flor 6" class="flor" data-frase="GRAN_FINAL">
+    </div>
+  </div>
+
+  <!-- Modal de frases -->
+  <div id="modal" class="oculto">
+    <div class="modal-contenido">
+      <img id="modal-img" src="" alt="Flor ampliada">
+      <p id="modal-frase"></p>
+      <button id="cerrar">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Gran final -->
+  <div id="final" class="pantalla oculto">
+    <h1>No quiero existir en un mundo donde no estés ✨🥹<br>Te amo demasiado 😍❤️</h1>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
