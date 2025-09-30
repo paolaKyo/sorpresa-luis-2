@@ -8,14 +8,15 @@
 </head>
 <body>
   <!-- Portada -->
-  <div id="portada" class="pantalla">
+  <div id="portada" class="pantalla portada">
     <img src="foto.jpg" alt="Nosotros" class="foto-portada">
     <h1 class="frase-portada">🌻✨🫶 Feliz 30 de septiembre</h1>
     <button id="btnIniciar">Ver Sorpresa 💖</button>
   </div>
 
-  <!-- Galería de flores -->
+  <!-- Galería -->
   <div id="galeria" class="pantalla oculto">
+    <h2 class="subtitulo">Haz clic en cada imagen 💕</h2>
     <div class="flores">
       <img src="hw1.jpg" data-frase="💕✨ Mi vida estaba en blanco y negro, llegaste y la coloreaste con tu sonrisa y tu luz 💕✨">
       <img src="hw2.jpg" data-frase="Eres mi alegría diaria 💕">
@@ -26,7 +27,7 @@
     </div>
   </div>
 
-  <!-- Modal para mostrar imagen + frase -->
+  <!-- Modal -->
   <div id="modal" class="modal oculto">
     <div class="modal-content">
       <span id="cerrar">&times;</span>
@@ -35,16 +36,18 @@
     </div>
   </div>
 
-  <!-- Gran final -->
+  <!-- Final -->
   <div id="final" class="pantalla oculto">
-    <h1 class="frase-final">✨🥹 No quiero existir en un mundo donde no estés ✨🥹<br>Te amo demasiado 😍❤️</h1>
-    <div class="corazones"></div>
+    <h1 class="frase-final">
+      ✨🥹 No quiero existir en un mundo donde no estés ✨🥹<br>
+      Te amo demasiado 😍❤️
+    </h1>
+    <div id="corazones"></div>
   </div>
 
   <!-- Música -->
-  <audio id="musica" autoplay loop>
+  <audio id="musica" loop>
     <source src="perfect.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
   </audio>
 
   <script src="script.js"></script>
