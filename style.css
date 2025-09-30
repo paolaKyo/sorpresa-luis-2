@@ -1,11 +1,35 @@
 body {
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
   font-family: 'Dancing Script', cursive;
-  color: #fff;
-  text-align: center;
-  padding: 50px;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
   overflow-x: hidden;
   position: relative;
+  text-align: center;
+}
+
+/* --- Portada --- */
+#portada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 70%);
+}
+
+.foto-portada {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  margin-bottom: 20px;
+  animation: fadeIn 2s forwards;
+}
+
+.frase-portada {
+  font-size: 2em;
+  color: #fff;
+  animation: fadeIn 2s forwards;
 }
 
 #startBtn {
@@ -23,69 +47,83 @@ body {
   color: #fff;
 }
 
-.frase {
-  font-family: 'Dancing Script', cursive;
-  font-size: 2em;
-  color: #fff;
-  text-align: center;
-  margin: 30px 0;
-  opacity: 0;
-  transform: translateY(20px);
+/* --- Flores --- */
+.flores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
 }
 
-/* Destello sutil de letras */
-.letra {
-  display: inline-block;
-  opacity: 0;
-  animation: letraFade 0.5s forwards;
-  position: relative;
+.flor {
+  width: 120px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.flor:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px #fff;
 }
 
-.letra::after {
-  content: "✨";
-  position: absolute;
-  left: 50%;
-  top: -0.5em;
-  font-size: 1em;
-  opacity: 0;
-  transform: translateX(-50%) scale(0);
-  animation: sparkle 0.7s forwards;
-  animation-delay: inherit;
-}
-
-@keyframes letraFade {
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes sparkle {
-  0% { opacity: 0; transform: translateX(-50%) scale(0); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1); }
-  100% { opacity: 0; transform: translateX(-50%) scale(0); }
-}
-
-/* Corazones brillantes flotantes */
-#hearts {
-  pointer-events: none;
+/* --- Modal --- */
+#modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  top:0; left:0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: 9999;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 1000;
 }
 
-.heart {
+.modal-fondo {
   position: absolute;
-  font-size: 1.5em;
-  color: #fff;
-  opacity: 0.8;
-  animation: fall 5s linear infinite;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
 }
 
-@keyframes fall {
-  0% { transform: translateY(-50px) scale(1); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
+.modal-contenido {
+  position: relative;
+  background: #fff0;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  animation: zoomIn 0.5s forwards;
 }
+
+#modal-img {
+  width: 300px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.frase-modal {
+  font-size: 1.8em;
+  color: #fff;
+  text-shadow: 0 0 10px #ff6f91;
+}
+
+/* --- Gran final --- */
+#final {
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+  color: #fff;
+  font-size: 2em;
+  padding: 20px;
+  animation: fadeIn 2s forwards;
+}
+
+/* --- Corazones flotantes --- */
+#hearts { pointer-events:none; position:fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:9999; }
+.heart { position:absolute; font-size:1.5em; color:#fff; opacity:0.8; animation: fall 5s linear infinite; }
+
+@keyframes fall { 0%{transform:translateY(-50px) scale(1); opacity:0;} 10%{opacity:1;} 100%{transform:translateY(100vh) scale(1.5); opacity:0;} }
+@keyframes fadeIn { 0%{opacity:0;}100%{opacity:1;} }
+@keyframes zoomIn { 0%{transform:scale(0.5); opacity:0;}100%{transform:scale(1); opacity:1;} }
