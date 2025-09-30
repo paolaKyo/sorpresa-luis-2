@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorpresa 💖</title>
-  <link rel="stylesheet" href="estilo.css">
+  <title>Carta Romántica Mágica</title>
+
+  <!-- Fuente elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="portada">
-    <img src="foto.jpg" alt="Nosotros" class="foto-portada">
-    <h1>🌻✨🫶 Feliz 30 de septiembre</h1>
-    <button onclick="iniciarSorpresa()">Ver sorpresa 💖</button>
+  <!-- Portada -->
+  <div id="portada">
+    <h1>💖 Una sorpresa para ti 💖</h1>
+    <button id="startBtn">Ver sorpresa</button>
   </div>
 
-  <audio id="musica" autoplay loop>
-    <source src="perfect.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio><audio id="bg-music" loop>
-  <source src="perfect.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Galería / frases -->
+  <div id="galeria" style="display:none;">
+    <audio id="bg-music" src="musica-romantica.mp3"></audio>
+
+    <div class="frase" data-text="Eres la razón de mi sonrisa 😍"></div>
+    <div class="frase" data-text="Cada momento contigo es mágico ✨"></div>
+    <div class="frase" data-text="Siempre juntos, mi amor 💖"></div>
+    <div class="frase" data-text="Te amo más de lo que las palabras pueden decir ❤️"></div>
+  </div>
+
+  <!-- Contenedor para corazones brillantes -->
+  <div id="hearts"></div>
 
   <script src="script.js"></script>
 </body>
